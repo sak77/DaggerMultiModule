@@ -51,6 +51,7 @@ class RepositoryModule {
         //@Singleton - scoping provider function, means the
         //component also has to have same scope on it.
 
+        @Singleton
         @Provides
         fun providesBookingRepository(bookingDB: BookingDB): IBookingRepository {
             return BookingRepository(bookingDB)

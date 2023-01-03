@@ -12,6 +12,7 @@ import com.saket.register.di.SubcomponentRegisterModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
+import javax.inject.Singleton
 
 /**
  * The idea here is that since DB instance has to be
@@ -23,7 +24,7 @@ import dagger.Module
  * different project modules which will extend it and will
  * also be able to access the DB instance provided by it.
  */
-//@Singleton - is it required? since only being instantiated in application class..
+@Singleton //- is it required? since only being instantiated in application class..
 @Component(
     modules = [RepositoryModule::class,
         SubcomponentLoginModule::class,
