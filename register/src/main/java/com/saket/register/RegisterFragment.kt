@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.saket.domain.model.User
 import com.saket.register.databinding.FragmentRegisterBinding
 import com.saket.register.di.RegisterComponentProvider
@@ -16,7 +17,10 @@ class RegisterFragment : Fragment() {
 
     //Note: Dagger cannot inject private variables
     @Inject
-    lateinit var registerViewModel: RegisterViewModel
+    lateinit var registerViewModelFactory: RegisterViewModelFactory
+    val registerViewModel: RegisterViewModel by viewModels {
+        registerViewModelFactory
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

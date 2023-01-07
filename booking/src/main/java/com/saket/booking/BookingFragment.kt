@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.saket.booking.databinding.FragmentBookingBinding
 import com.saket.booking.di.BookingComponentProvider
 import javax.inject.Inject
@@ -14,7 +15,10 @@ import javax.inject.Inject
 class BookingFragment : Fragment() {
 
     @Inject
-    lateinit var bookingViewModel: BookingViewModel
+    lateinit var bookingViewModelFactory: BookingViewModelFactory
+    private val bookingViewModel:BookingViewModel by viewModels {
+        bookingViewModelFactory
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

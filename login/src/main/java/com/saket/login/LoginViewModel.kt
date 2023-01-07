@@ -8,7 +8,12 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 /*
-Using DI allows to skip ViewModelFactory class.
+ViewModel should be created using ViewModelProvider
+at some point. It might be hidden inside a
+delegate “by viewModels { factory }” or be called directly.
+However, without it, ViewModel won’t persist through
+configuration changes, and its onCleared method won’t be
+called when it’s no longer needed.
  */
 class LoginViewModel @Inject constructor(
     private val authenticateUseCase: AuthenticateUseCase
