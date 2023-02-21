@@ -1,3 +1,6 @@
+After DaggerAndroidSample, this is third in a series which looks at using Dagger 
+in Android.
+
 This project focuses on Dagger implementation in a multi-module project.
 For this, i have created a poc flight booking app. First an overview.
 Flight booking app-
